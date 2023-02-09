@@ -1,0 +1,7 @@
+# install pytorch+cuda first
+spacy==2.1.3
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.1.0/en_core_web_md-2.1.0.tar.gz
+transformers==4.9.1
+sentencepiece==0.1.96
+neuralcoref
+bert-extractive-summarizer
