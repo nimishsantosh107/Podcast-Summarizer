@@ -3,15 +3,9 @@ import time
 from summarizer import Summarizer
 from summarizer.text_processors.coreference_handler import CoreferenceHandler
 
-
-TRANSCRIPT_ROOT_DIR =  os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tmp_transcripts")
-SUMMARY_ROOT_DIR =  os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tmp_summaries")
-FILENAME = "000_welcome"
-RATIO = 0.5
-
-if __name__ == "__main__":
+def summarize(transcript_root_dir: str, summary_root_dir: str, filename: str, ratio: int) -> None:
     text_in = ""
-    with open(os.path.join(TRANSCRIPT_ROOT_DIR, FILENAME+".txt")) as f:
+    with open(os.path.join(transcript_root_dir, filename+".txt")) as f:
         text_in = f.read()
 
 
@@ -23,7 +17,7 @@ if __name__ == "__main__":
     print("SUMMARIZING...")
     start_time = time.time()
 
-    result = model(text_in, ratio=RATIO)
+    result = model(text_in, ratio=ratio)
     text_out = ''.join(result)
 
     stop_time = time.time()
@@ -35,5 +29,5 @@ if __name__ == "__main__":
     print("WordCount:\t", len(text_out.split()))
 
 
-    with open(os.path.join(SUMMARY_ROOT_DIR, FILENAME+".txt"), 'w') as f:
+    with open(os.path.join(summary_root_dir, filename+".txt"), 'w') as f:
         f.write(text_out)
