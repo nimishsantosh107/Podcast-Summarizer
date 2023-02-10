@@ -1,6 +1,8 @@
 import os
 import argparse
 from modules import transcribe, summarize
+from dotenv import load_dotenv
+load_dotenv()
 
 PODCAST_ROOT_DIR =  os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tmp_podcasts")
 TRANSCRIPT_ROOT_DIR =  os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tmp_transcripts")

@@ -5,3 +5,6 @@ transformers==4.9.1
 sentencepiece==0.1.96
 neuralcoref
 bert-extractive-summarizer
+openai-whisper
+openai
+python-dotenv
